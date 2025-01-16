@@ -1,0 +1,25 @@
+
+<h1>All Cars</h1>
+
+<div class ="container">
+  <div class= "cards">
+    <% @cars.each do |car| %>
+      <%= link_to car_path(car), class: "text-decoration-none" do  %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <div class="car-info-left">
+              <h2><%= car.brand %></h2>
+              <p> <%= car.model %>- <%= car.year %> </p>
+            </div>
+            <div class="car-info-right">
+              <h3>Owner - <strong><%= car.owner.nickname %></strong></h3>
+              <p> Fuel Type - <em><%= car.fuel %></em></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

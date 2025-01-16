@@ -1,0 +1,9 @@
+<h1>My Garage</h1>
+
+<ul>
+  <% @favourites.each do |favourite| %>
+    <p> <%= favourite.car.brand %></p>
+    <p> <%= favourite.car.model %>
+    </p>
+  <% end %>
+</ul>
