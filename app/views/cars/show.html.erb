@@ -1,31 +1,37 @@
 <h1>Cars#show</h1>
 
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <div class="car-info-left">
-    <h2><%= @car.brand %></h2>
-    <p> <%= @car.model %>- <%= @car.year %> </p>
-    </div>
-    <div class="car-info-right">
-      <h3>Owner - <strong><%= @car.owner.nickname %></strong></h3>
-      <p> Fuel Type - <em><%= @car.fuel %></em></p>
-      <% if @car.favourites.empty? %>
-        <%= simple_form_for [@car, @favourite] do |f| %>
-          <%= f.submit "Choose this car", class: "btn btn-primary" %>
-        <% end %>
-      <% else %>
-        <p>This car is already in your garage</p>
-      <% end %>
-    </div>
-  </div>
-</div>
 
-<p><%= link_to "Add a Review", new_car_review_path(@car)%></p>
-  <p><strong>Reviews</strong></p>
-  <ul class="list-group">
-    <% @car.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.comment %></li>
-    <% end %>
-  </ul>
-  <br>
+
+    <div class="card-trip">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2> <strong><%= @car.brand %></strong></h2>
+          <h3><%= @car.model %></h3>
+          <p><em><%= @car.fuel %></em></p>
+          <%= @car.year %>
+        </div>
+        <div class="button-box">
+          <p><%= link_to "Add a Review", new_car_review_path(@car), class:"btn btn-ghost"%></p>
+          <% if @car.favourites.empty? %>
+            <%= simple_form_for [@car, @favourite] do |f| %>
+              <%= f.submit "Add to Garage!", class: "btn btn-primary" %>
+            <% end %>
+          <% else %>
+            <% image_tag("car-icon.ico") %>
+            <p id="message">This car is already in your garage</p>
+          <% end %>
+        </div>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      <div class="comment-box">
+        <% if @car.reviews.exists? %>
+          <em><h3>Reviews:</h3></em>
+        <% end %>
+        <% @car.reviews.each do |review| %>
+          <div class="comment">
+            <p><%= review.comment %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>

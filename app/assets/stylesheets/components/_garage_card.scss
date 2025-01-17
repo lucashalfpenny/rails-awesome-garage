@@ -1,0 +1,83 @@
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 550px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.card-trip > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 40px;
+}
+
+.delete-icon {
+  position: absolute;
+  right: 10px;
+  top:10px;
+  color: gray;
+  opacity: 0.8;
+  transition: color 0.3s ease-in-out;
+}
+.delete-icon :hover {
+  opacity: 1;
+  color: rgb(103, 103, 103)
+}
+
+.review-box {
+  height: 200px;
+}
+
+.button-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: space-between;
+}
+
+.comment-box {
+  padding: 16px;
+}
+
+.comment {
+  border-bottom: 1px dashed rgb(136, 136, 136);
+  opacity: 0.8;
+  padding: 5px;
+}
+
+#message {
+  font-size: larger;
+  right: 120px;
+  position: absolute;
+  top: 60px;
+}

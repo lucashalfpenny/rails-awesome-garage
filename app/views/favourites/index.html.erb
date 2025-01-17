@@ -1,9 +1,23 @@
 <h1>My Garage</h1>
 
-<ul>
-  <% @favourites.each do |favourite| %>
-    <p> <%= favourite.car.brand %></p>
-    <p> <%= favourite.car.model %>
-    </p>
-  <% end %>
-</ul>
+
+<div class ="container">
+  <div class= "cards">
+    <% @favourites.each do |favourite| %>
+        <div class="card-product">
+          <%= link_to favourite_path(favourite), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-icon' do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <div class="car-info-left">
+              <h2><%= favourite.car.brand %></h2>
+              <p> <%= favourite.car.model %>- <%= favourite.car.year %> </p>
+              <p> <%= favourite.car.fuel %></p>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+</div>
